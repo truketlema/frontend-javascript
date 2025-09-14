@@ -1,49 +1,52 @@
-// Assuming your employee factory
+// Employee types with task methods
 interface Director {
   name: string;
   salary: number;
   director: true;
+  workDirectorTasks: () => string;
 }
 
 interface Teacher {
   name: string;
   salary: number;
   director?: false;
+  workTeacherTasks: () => string;
 }
 
 type Employee = Director | Teacher;
 
-function createEmployee(salary: number): Employee {
+// Create employee with methods
+export function createEmployee(salary: number): Employee {
   if (salary >= 1000) {
-    return { name: "Director", salary, director: true };
+    return {
+      name: "Director",
+      salary,
+      director: true,
+      workDirectorTasks: () => "Getting to director tasks",
+    };
   } else {
-    return { name: "Teacher", salary };
+    return {
+      name: "Teacher",
+      salary,
+      workTeacherTasks: () => "Getting to work",
+    };
   }
 }
 
-// Functions representing tasks
-function workDirectorTasks(): void {
-  console.log("Getting to director tasks");
-}
-
-function workTeacherTasks(): void {
-  console.log("Getting to work");
-}
-
 // Type predicate for Director
-function isDirector(employee: Employee): employee is Director {
+export function isDirector(employee: Employee): employee is Director {
   return (employee as Director).director === true;
 }
 
-// Execute work based on type
-function executeWork(employee: Employee): void {
+// Execute work based on type and return result
+export function executeWork(employee: Employee): string {
   if (isDirector(employee)) {
-    workDirectorTasks();
+    return employee.workDirectorTasks();
   } else {
-    workTeacherTasks();
+    return employee.workTeacherTasks();
   }
 }
 
 // Test cases
-executeWork(createEmployee(200)); // Getting to work
-executeWork(createEmployee(1000)); // Getting to director tasks
+console.log(executeWork(createEmployee(200))); // Getting to work
+console.log(executeWork(createEmployee(1000))); // Getting to director tasks
