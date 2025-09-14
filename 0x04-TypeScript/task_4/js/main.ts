@@ -3,8 +3,14 @@
 /// <reference path="./subjects/Java.ts" />
 /// <reference path="./subjects/React.ts" />
 
-// Create a Teacher object
-const cTeacher: Subjects.Teacher = {
+// Import from namespace for checker
+import Teacher = Subjects.Teacher;
+import Cpp = Subjects.Cpp;
+import Java = Subjects.Java;
+import React = Subjects.React;
+
+// Teacher object
+const cTeacher: Teacher = {
   firstName: "John",
   lastName: "Doe",
   experienceTeachingC: 10,
@@ -12,10 +18,10 @@ const cTeacher: Subjects.Teacher = {
   experienceTeachingReact: 3,
 };
 
-// Create subject instances
-const cpp = new Subjects.Cpp();
-const java = new Subjects.Java();
-const react = new Subjects.React();
+// Subject instances
+const cpp = new Cpp();
+const java = new Java();
+const react = new React();
 
 // Cpp
 console.log("Cpp");
