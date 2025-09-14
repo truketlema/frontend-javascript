@@ -1,7 +1,7 @@
 /// <reference path="./subjects/Subject.ts" />
-/// <reference path="./subjects/React.ts" />
-/// <reference path="./subjects/Java.ts" />
 /// <reference path="./subjects/Cpp.ts" />
+/// <reference path="./subjects/Java.ts" />
+/// <reference path="./subjects/React.ts" />
 
 // Create a Teacher object
 const cTeacher: Subjects.Teacher = {
@@ -17,19 +17,19 @@ const cpp = new Subjects.Cpp();
 const java = new Subjects.Java();
 const react = new Subjects.React();
 
-// C++ subject
-console.log("C++");
+// Cpp
+console.log("Cpp");
 cpp.setTeacher(cTeacher);
 console.log(cpp.getRequirements());
 console.log(cpp.getAvailableTeacher());
 
-// Java subject
+// Java
 console.log("Java");
 java.setTeacher(cTeacher);
 console.log(java.getRequirements());
 console.log(java.getAvailableTeacher());
 
-// React subject
+// React
 console.log("React");
 react.setTeacher(cTeacher);
 console.log(react.getRequirements());
